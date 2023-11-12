@@ -1,7 +1,7 @@
 // LoginScreen.js
 
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button,StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const LoginScreen = ({ navigation }) => {
@@ -37,14 +37,16 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <View>
-      <Text>Login Screen</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Login Screen</Text>
       <TextInput
+        style={styles.input}
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
+        style={styles.input}
         placeholder="Password"
         secureTextEntry
         value={password}
@@ -59,4 +61,23 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 20,
+    marginBottom: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+    width: '80%',
+  },
+});
 export default LoginScreen;
